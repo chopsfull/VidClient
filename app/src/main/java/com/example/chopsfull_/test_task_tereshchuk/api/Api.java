@@ -25,5 +25,5 @@ public interface Api {
     Call<List<Videos>> getFeaturedVideos(@Query("offset") String offset);
 
     @GET("videos/new")
-    Call<Videos> getNewVideos(@Query("offset") String offset);
+    Call<Videos> getNewVideos(@Query("offset") String offset,@Query("limit") String limit);
 }

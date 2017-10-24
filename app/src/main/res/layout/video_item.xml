@@ -42,7 +42,8 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="5dp"
                 android:text="Published by: John Doe"
-                android:textSize="20dp"/>
+                android:textSize="15dp"
+                android:textColor="@color/secondary_dark_color"/>
         </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"

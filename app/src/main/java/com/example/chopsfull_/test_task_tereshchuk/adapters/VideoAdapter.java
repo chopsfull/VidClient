@@ -30,7 +30,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoHolder>
         Video video = videoList.get(position);
         Glide.with(holder.v).load(video.getThumbnailUrl()).into(holder.thumbNail);
         Glide.with(holder.v).load(video.getUser().getAvatarUrl()).into(holder.avatarImage);
-        holder.username.setText("Published by: "+video.getUser().getUsername());
+        holder.username.setText("Published by: "+video.getUser().getUsername().trim());
         holder.videoName.setText(video.getTitle());
         holder.countLikes.setText(String.valueOf(video.getLikesCount()) + " liked");
     }
@@ -63,5 +63,16 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoHolder>
             videoName = (TextView) itemView.findViewById(R.id.text_video_name);
             countLikes = (TextView) itemView.findViewById(R.id.text_number_of_likes);
         }
+    }
+
+    public void appendItems(List<Video> items) {
+        videoList.addAll(items);
+        notifyItemRangeInserted(getItemCount(), items.size());
+    }
+
+
+    public void clear() {
+        videoList.clear();
+        notifyDataSetChanged();
     }
 }
