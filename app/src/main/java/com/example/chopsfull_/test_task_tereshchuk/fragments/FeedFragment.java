@@ -24,6 +24,8 @@ import retrofit2.Response;
 
 public class FeedFragment extends Fragment {
 
+    public static Fragment getInstance(){return new FeedFragment();}
+
     public static final String PREFS_NAME = "MyPrefsFile";
     private String mLogin;
     private String mPassword;

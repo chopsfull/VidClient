@@ -22,7 +22,7 @@ public interface Api {
     Call<Videos> getFeedVideos(@Header("AccessToken") String token, @Query("offset") String offset);
 
     @GET("videos/featured")
-    Call<List<Videos>> getFeaturedVideos(@Query("offset") String offset);
+    Call<Videos> getFeaturedVideos(@Query("offset") String offset,@Query("limit") String limit);
 
     @GET("videos/new")
     Call<Videos> getNewVideos(@Query("offset") String offset,@Query("limit") String limit);

@@ -3,7 +3,6 @@ package com.example.chopsfull_.test_task_tereshchuk.fragments;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,38 +12,31 @@ import android.widget.Toast;
 
 import com.example.chopsfull_.test_task_tereshchuk.App;
 import com.example.chopsfull_.test_task_tereshchuk.R;
-import com.example.chopsfull_.test_task_tereshchuk.adapters.VideoAdapter;
-import com.example.chopsfull_.test_task_tereshchuk.utils.FragmentSetupUtils;
-import com.example.chopsfull_.test_task_tereshchuk.utils.listeners.EndlessRecyclerOnScrollListener;
 import com.example.chopsfull_.test_task_tereshchuk.model.APIError;
-import com.example.chopsfull_.test_task_tereshchuk.model.Video;
 import com.example.chopsfull_.test_task_tereshchuk.model.Videos;
 import com.example.chopsfull_.test_task_tereshchuk.utils.ErrorUtils;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.chopsfull_.test_task_tereshchuk.utils.FragmentSetupUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+public class FeaturedFragment extends FragmentSetupUtils {
 
-public class NewFragment extends FragmentSetupUtils {
-
-    public static Fragment getInstance(){return new NewFragment();}
-
+    public static Fragment getInstance(){return new FeaturedFragment();}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_new, container, false);
-        swipeRefreshLayout = (SwipeRefreshLayout)v.findViewById(R.id.swipe_new);
-        recyclerView = (RecyclerView)v.findViewById(R.id.recycler_fragment_new);
+        View v = inflater.inflate(R.layout.fragment_featured, container, false);
+        swipeRefreshLayout = (SwipeRefreshLayout)v.findViewById(R.id.swipe_featured);
+        recyclerView = (RecyclerView)v.findViewById(R.id.recycler_fragment_featured);
         setupView(v);
         return v;
     }
 
+
     protected void getFirstPageOfVids(int offset){
-        App.getApi().getNewVideos(String.valueOf(offset),"10").enqueue(new Callback<Videos>() {
+        App.getApi().getFeaturedVideos(String.valueOf(offset),"10").enqueue(new Callback<Videos>() {
             @Override
             public void onResponse(Call<Videos> call, Response<Videos> response) {
                 if (response.isSuccessful()) {
@@ -66,7 +58,7 @@ public class NewFragment extends FragmentSetupUtils {
     }
 
     protected void getMoreVids(int offset){
-        App.getApi().getNewVideos(String.valueOf(offset),"10").enqueue(new Callback<Videos>() {
+        App.getApi().getFeaturedVideos(String.valueOf(offset),"10").enqueue(new Callback<Videos>() {
             @Override
             public void onResponse(Call<Videos> call, Response<Videos> response) {
                 if (response.isSuccessful()) {
@@ -84,12 +76,6 @@ public class NewFragment extends FragmentSetupUtils {
             }
         });
     }
-
-
-
-
-
-
 
 
 }

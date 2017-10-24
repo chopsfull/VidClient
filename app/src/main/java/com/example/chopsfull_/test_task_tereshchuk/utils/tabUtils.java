@@ -68,6 +68,7 @@ public abstract class tabUtils extends AppCompatActivity {
             public void onPageSelected(int position) {
                 getSupportActionBar().setSelectedNavigationItem(position);
             }
+
         });
     }
 }

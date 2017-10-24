@@ -1,4 +1,4 @@
-package com.example.chopsfull_.test_task_tereshchuk.fragments.listeners;
+package com.example.chopsfull_.test_task_tereshchuk.utils.listeners;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;

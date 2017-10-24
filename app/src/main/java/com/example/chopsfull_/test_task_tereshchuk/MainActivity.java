@@ -2,7 +2,7 @@ package com.example.chopsfull_.test_task_tereshchuk;
 
 import android.app.Fragment;
 
-import com.example.chopsfull_.test_task_tereshchuk.fragments.Page1Fragment;
+import com.example.chopsfull_.test_task_tereshchuk.fragments.FeaturedFragment;
 import com.example.chopsfull_.test_task_tereshchuk.fragments.NewFragment;
 import com.example.chopsfull_.test_task_tereshchuk.fragments.FeedFragment;
 import com.example.chopsfull_.test_task_tereshchuk.utils.tabUtils;
@@ -17,9 +17,9 @@ public class MainActivity extends tabUtils {
 
     // The fragments that are used as the individual pages
     private final Fragment[] PAGES = new Fragment[] {
-            new Page1Fragment(),
-            new NewFragment(),
-            new FeedFragment()
+            FeaturedFragment.getInstance(),
+            NewFragment.getInstance(),
+            FeedFragment.getInstance()
     };
 
     @Override
