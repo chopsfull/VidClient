@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.chopsfull_.test_task_tereshchuk.App;
+import com.example.chopsfull_.test_task_tereshchuk.retrofit.App;
 import com.example.chopsfull_.test_task_tereshchuk.R;
 import com.example.chopsfull_.test_task_tereshchuk.model.APIError;
 import com.example.chopsfull_.test_task_tereshchuk.model.Videos;
@@ -24,12 +24,6 @@ import retrofit2.Response;
 public class FeaturedFragment extends FragmentSetupUtils {
 
     public static Fragment getInstance(){return new FeaturedFragment();}
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getFirstPageOfVids(0);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

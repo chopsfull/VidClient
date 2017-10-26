@@ -1,4 +1,4 @@
-package com.example.chopsfull_.test_task_tereshchuk;
+package com.example.chopsfull_.test_task_tereshchuk.retrofit;
 
 import android.app.Application;
 

@@ -16,7 +16,7 @@ import com.example.chopsfull_.test_task_tereshchuk.R;
 import com.example.chopsfull_.test_task_tereshchuk.adapters.MyPagerAdapter;
 
 public abstract class tabUtils extends AppCompatActivity {
-    private ViewPager mViewPager;
+    protected ViewPager mViewPager;
     private String[] PAGE_TITLES;
     private Fragment[] PAGES;
 
@@ -77,7 +77,6 @@ public abstract class tabUtils extends AppCompatActivity {
 
         if(!isNetworkAvailable())
             Toast.makeText(this,"No Internet Connection",Toast.LENGTH_LONG).show();
-
 
     }
 

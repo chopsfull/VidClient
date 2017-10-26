@@ -5,23 +5,14 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
-import com.example.chopsfull_.test_task_tereshchuk.App;
 import com.example.chopsfull_.test_task_tereshchuk.adapters.VideoAdapter;
-import com.example.chopsfull_.test_task_tereshchuk.model.APIError;
 import com.example.chopsfull_.test_task_tereshchuk.model.Video;
-import com.example.chopsfull_.test_task_tereshchuk.model.Videos;
 import com.example.chopsfull_.test_task_tereshchuk.utils.listeners.EndlessRecyclerOnScrollListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public abstract class FragmentSetupUtils extends Fragment {
 
@@ -40,7 +31,11 @@ public abstract class FragmentSetupUtils extends Fragment {
     }
 
 
-
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getFirstPageOfVids(0);
+    }
 
     protected abstract void getFirstPageOfVids(int offset);
     protected abstract void getMoreVids(int offset);

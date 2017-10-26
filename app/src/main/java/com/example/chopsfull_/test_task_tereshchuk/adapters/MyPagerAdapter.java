@@ -3,8 +3,9 @@ package com.example.chopsfull_.test_task_tereshchuk.adapters;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v13.app.FragmentStatePagerAdapter;
 
-public class MyPagerAdapter extends FragmentPagerAdapter {
+public class MyPagerAdapter extends FragmentStatePagerAdapter {
     private String[] PAGE_TITLES;
     private Fragment[] PAGES;
 

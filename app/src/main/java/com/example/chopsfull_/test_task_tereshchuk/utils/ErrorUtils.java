@@ -1,6 +1,6 @@
 package com.example.chopsfull_.test_task_tereshchuk.utils;
 
-import com.example.chopsfull_.test_task_tereshchuk.App;
+import com.example.chopsfull_.test_task_tereshchuk.retrofit.App;
 import com.example.chopsfull_.test_task_tereshchuk.model.APIError;
 
 import java.io.IOException;

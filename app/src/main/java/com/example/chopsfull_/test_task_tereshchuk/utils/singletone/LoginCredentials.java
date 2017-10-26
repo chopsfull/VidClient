@@ -8,7 +8,6 @@ public class LoginCredentials {
     private String login=null;
     private Account mAcc=null;
     private boolean isLoggedIn=false;
-    private String token = null;
 
     public static LoginCredentials getInstance() {
         return ourInstance;
@@ -18,18 +17,18 @@ public class LoginCredentials {
     }
 
     public void reset(){
-         password=null;
+        password=null;
         login=null;
         mAcc=null;
         isLoggedIn=false;
     }
 
-    public void setToken(String s){
-        this.token = s;
-    }
 
     public String getToken(){
-        return this.token;
+        if(mAcc!=null)
+            return mAcc.getAuth().getToken();
+        return "0";
+
     }
     public String getPassword() {
         return password;
