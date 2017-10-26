@@ -26,6 +26,12 @@ public class FeaturedFragment extends FragmentSetupUtils {
     public static Fragment getInstance(){return new FeaturedFragment();}
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getFirstPageOfVids(0);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_featured, container, false);
         swipeRefreshLayout = (SwipeRefreshLayout)v.findViewById(R.id.swipe_featured);

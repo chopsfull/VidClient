@@ -30,6 +30,7 @@ public abstract class FragmentSetupUtils extends Fragment {
     protected SwipeRefreshLayout swipeRefreshLayout;
     protected VideoAdapter videoAdapter;
     protected EndlessRecyclerOnScrollListener scrollListener;
+    protected SwipeRefreshLayout.OnRefreshListener refreshListener;
 
 
 
@@ -38,11 +39,6 @@ public abstract class FragmentSetupUtils extends Fragment {
         recyclerView.setAdapter(videoAdapter);
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getFirstPageOfVids(0);
-    }
 
 
 
@@ -60,7 +56,7 @@ public abstract class FragmentSetupUtils extends Fragment {
             }
         };
         recyclerView.setOnScrollListener(scrollListener);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        swipeRefreshLayout.setOnRefreshListener(refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 refreshVideos();
@@ -85,6 +81,6 @@ public abstract class FragmentSetupUtils extends Fragment {
     public void onStart() {
         super.onStart();
         if(videoList.size()==0)
-            refreshVideos();
+            refreshListener.onRefresh();
     }
 }

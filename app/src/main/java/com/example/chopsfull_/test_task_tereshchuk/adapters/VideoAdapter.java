@@ -1,8 +1,6 @@
 package com.example.chopsfull_.test_task_tereshchuk.adapters;
 
 import android.content.Intent;
-import android.gesture.GestureLibraries;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.chopsfull_.test_task_tereshchuk.R;
+import com.example.chopsfull_.test_task_tereshchuk.VideoActivity;
 import com.example.chopsfull_.test_task_tereshchuk.model.Video;
 
 
@@ -79,8 +78,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoHolder>
             thumbNail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(videoUrl));
+                    Intent i = new Intent(v.getContext(), VideoActivity.class);
+                    i.putExtra(VideoActivity.VIDEO_URL_KEY,videoUrl);
                     v.getContext().startActivity(i);
                 }
             });

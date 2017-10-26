@@ -35,6 +35,12 @@ public class NewFragment extends FragmentSetupUtils {
 
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getFirstPageOfVids(0);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_new, container, false);
         swipeRefreshLayout = (SwipeRefreshLayout)v.findViewById(R.id.swipe_new);

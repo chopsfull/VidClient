@@ -3,4 +3,6 @@
     <string name="error_invalid_password">You password is invalid!</string>
     <string name="error_field_required">Fill this field</string>
     <string name="error_invalid_login">Login is invalid</string>
+    <string name="saved_credentials">SAVED CREDS</string>
+    <string name="log_out">Log out</string>
 </resources>

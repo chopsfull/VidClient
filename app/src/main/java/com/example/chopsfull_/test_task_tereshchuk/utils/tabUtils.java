@@ -2,11 +2,15 @@ package com.example.chopsfull_.test_task_tereshchuk.utils;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.example.chopsfull_.test_task_tereshchuk.R;
 import com.example.chopsfull_.test_task_tereshchuk.adapters.MyPagerAdapter;
@@ -70,5 +74,17 @@ public abstract class tabUtils extends AppCompatActivity {
             }
 
         });
+
+        if(!isNetworkAvailable())
+            Toast.makeText(this,"No Internet Connection",Toast.LENGTH_LONG).show();
+
+
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }
